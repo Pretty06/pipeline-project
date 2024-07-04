@@ -1,0 +1,25 @@
+name: Build and Test Node.js Application
+
+on: 
+  push:
+
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    container: 
+      image: node:16
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Display Node.js version
+        run: node --version
+
+      - name: Display npm version
+        run: npm --version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the application
+        run: node app.js
